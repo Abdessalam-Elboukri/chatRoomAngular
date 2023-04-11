@@ -72,9 +72,13 @@ body {
 
   .status {
     color: $gray;
+    font-size: 13px;
   }
 }
-
+.name{
+  color: #d8dadf;
+  font-size: 16px;
+}
 .chat {
   width: 490px;
   float: left;
