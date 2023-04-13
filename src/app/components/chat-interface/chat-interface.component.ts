@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConversationThreadService} from "../../services/conversation-thread.service";
 
 @Component({
   selector: 'app-chat-interface',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatInterfaceComponent implements OnInit {
 
-  constructor() { }
+  email="sender@g.com"
+  constructor(private conversationThreadService:ConversationThreadService) { }
 
+  myConversation:any
   ngOnInit(): void {
+    this.getMyConversationThread(this.email);
+  }
+
+
+  getMyConversationThread(email:string){
+    this.conversationThreadService.getAllMyConversation(email).subscribe((res)=>{
+      this.myConversation=res.data
+    })
   }
 
 }
